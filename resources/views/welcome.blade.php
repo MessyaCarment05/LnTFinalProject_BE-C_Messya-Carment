@@ -64,11 +64,11 @@
                 </div>
             </div>
             @endforeach
-            @if ($users->admin_id==NULL)
+            {{-- @if ($users->admin_id==NULL)
             {
               <h4>halo</h4>
             }
-            @endif
+            @endif --}}
         </div>
     </div>
     
