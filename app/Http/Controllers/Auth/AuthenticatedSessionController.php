@@ -45,4 +45,8 @@ class AuthenticatedSessionController extends Controller
 
         return redirect('/');
     }
+    // public function checkRole($id){
+    //     $users = User::findOrFail($id);
+    //     return view('welcome',compact('users'));
+    // }
 }

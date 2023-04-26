@@ -52,9 +52,7 @@ Route::middleware('auth')->group(function () {
     //TODO Tampilin category pada view dengan relationships
     Route::get('/', [BarangController::class, 'show']);
 
-    // Route::get('/edit-jumlah/{id}', [BarangController::class, 'editJumlah'])->name('editJumlah');
-
-    // Route::patch('/update-jumlah/{id}', [BarangController::class, 'updateJumlah'])->name('updateJumlah');
+   
 
    
 });
