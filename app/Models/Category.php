@@ -13,7 +13,8 @@ class Category extends Model
         'CategoryName'
     ];
 
-    public function book(){
+    public function barang(){
         return $this->hasMany(Barang::class,'category_id');
     }
+    
 }

@@ -28,19 +28,10 @@
           </ul>
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/create-barang">Add Product</a>
+              <a class="nav-link active" aria-current="page" href="/create-faktur">Faktur Barang</a>
             </li>
         </ul>
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="/create-category">Add Category</a>
-          </li>
-      </ul>
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="/create-faktur">Faktur</a>
-            </li>
-        </ul>
+            
              <form class="d-flex" role="search">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
               <button class="btn btn-outline-success" type="submit">Search</button>
@@ -48,30 +39,23 @@
           </div>
         </div>
       </nav>
-       
-      <div class="row row-cols-1 row-cols-md-3 g-4 m-2 mb-5">
-        <div class="col">
-        
-            @foreach ($data as $data2)
-            <div class="card">
-                <div class="card-body">
-                    <img src="{{asset("storage/".$data2->image)}}" alt="{{$data2->image}}">
-                    <h4 class="card-title">Category Product: {{$data2->category->CategoryName}}</h4>
-                    <h4 class="card-title">Nama Product: {{$data2->nama_barang}}</h4>
-                    <h4 class="card-title">Harga Product: {{$data2->harga}}</h4> 
-                    <h4 class="card-title">Jumlah Product: {{$data2->jumlah}}</h4>
-                    <a href="{{route('edit', $data2->id)}}" class="btn btn-success">Edit</a>
-                    <form action="{{route('delete', $data2->id)}}" method="POST">
-                        @csrf
-                        @method('delete')
-                        <button class="btn btn-danger">Delete</button>
-                    </form>                   
-                </div>
-            </div>
-            @endforeach
-            
+      <div class="mx-5 mt-5">
+        <h1>Data Faktur</h1>
+    <form action="/store-faktur" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="col-md-4">
+          <label for="validationDefault01" class="form-label">Alamat</label>
+          <input type="text" class="form-control" id="validationDefault01" name="alamat" required minlength="10" maxlength="100">
         </div>
-    </div>
-    
+        <div class="col-md-4">
+          <label for="validationDefault01" class="form-label">Kode Pos</label>
+          <input type="text" class="form-control" id="validationDefault01" name="kodePos" required minlength="5" maxlength="5">
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary" type="submit">Add</button>
+        </div>
+      </form>
+      </div>    
+
 </body>
-</html> 
+</html>

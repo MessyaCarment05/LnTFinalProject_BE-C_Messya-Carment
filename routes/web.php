@@ -2,6 +2,7 @@
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\FakturController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -48,9 +49,14 @@ Route::middleware('auth')->group(function () {
     
     //TODO Implementasi fungsi storeBook
     Route::post('/store-barang', [BarangController::class, 'storeBarang']);
+
+    Route::get('/create-faktur', [FakturController::class, 'createFaktur']);
+
+    Route::post('/store-faktur', [FakturController::class, 'storeFaktur']);
     
     //TODO Tampilin category pada view dengan relationships
     Route::get('/', [BarangController::class, 'show']);
+    Route::get('/faktur', [FakturController::class, 'showFaktur']);
 
    
 
