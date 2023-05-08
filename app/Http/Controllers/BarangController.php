@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-// use App\Http\Requests\BarangRequest;
+
+
+
 use App\Models\Barang;
+use App\Models\User;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Redis;
+use Illuminate\Support\Facades\Auth;
 
 class BarangController extends Controller
 {
@@ -14,8 +18,10 @@ class BarangController extends Controller
         return view('createBarang', ["category"=>$category]);
     }
     public function show(){
+        $users= Auth::user();
+        
         $data = Barang::all();
-        return view('welcome', compact('data'));
+        return view('welcome', compact('data', 'users'));
     }
     public function storeBarang (Request $req){
         $req->validate([
